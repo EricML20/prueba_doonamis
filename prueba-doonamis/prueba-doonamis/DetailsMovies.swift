@@ -28,8 +28,6 @@ struct DetailsMovies: View {
             if (error != nil) {
                 print(error as Any)
             } else {
-                let httpResponse = response as? HTTPURLResponse
-                //print(httpResponse)
                 if let data = data {
                     do {
                         if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
@@ -101,17 +99,18 @@ struct DetailsMovies: View {
             
             Spacer()
         }
+        .background(Color("BackgroundColor"))
         .navigationBarTitleDisplayMode(.inline)
+        .foregroundColor(Color("AccentColor"))
         .onAppear {
             getGenres()
-            
         }
         
     }
     
     struct DetailsMovies_Previews: PreviewProvider {
         static var previews: some View {
-            DetailsMovies(selected_movie: Movie(id: 134224, name: "Voltes V: Legacy", popularity: 1865.967, overview: "Voltes V: Legacy follows the story of three brothers, Steve, Big Bert, and Little Jon Armstrong, and their friends Jamie Robinson and Mark Gordon, as they fight the forces of humanoid aliens known as Boazanians who plans to invade the earth and launch their beast fighters all over the world.", backdrop_path: "/fEP2Sha3PXJnAcoGOjr5oybq44Q.jpg", first_air_date: "2023-05-08", vote_average: 5.3, vote_count: 6, genre_ids: [10765,10759], poster_path: "/jZ32tdCTFsRoU2GehW6ZzSpTyS1.jpg"))
+            DetailsMovies(selected_movie: Movie(id: 134224, name: "Voltes V: Legacy", popularity: 1865.967, overview: "Voltes V: Legacy follows the story of three brothers, Steve, Big Bert, and Little Jon Armstrong, and their friends Jamie Robinson and Mark Gordon, as they fight the forces of humanoid aliens known as Boazanians who plans to invade the earth and launch their beast fighters all over the world.", backdrop_path: "/fEP2Sha3PXJnAcoGOjr5oybq44Q.jpg", vote_average: 5.3, vote_count: 6, genre_ids: [10765,10759], poster_path: "/jZ32tdCTFsRoU2GehW6ZzSpTyS1.jpg"))
         }
     }
 }

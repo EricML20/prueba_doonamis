@@ -11,7 +11,7 @@ import SwiftUI
 struct prueba_doonamisApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView().preferredColorScheme(.light)
+            ContentView()
         }
     }
 }
