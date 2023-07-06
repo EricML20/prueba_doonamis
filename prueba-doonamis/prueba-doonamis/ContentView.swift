@@ -89,6 +89,7 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Most popular movies")
+            .navigationBarTitleDisplayMode(.inline)
             
         }
         .onAppear {
