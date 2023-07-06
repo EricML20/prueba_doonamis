@@ -103,6 +103,7 @@ struct ContentView: View {
             .background(Color("BackgroundColor"))
             .scrollContentBackground(.hidden)
             .navigationTitle(language_selected.title)
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Menu {
