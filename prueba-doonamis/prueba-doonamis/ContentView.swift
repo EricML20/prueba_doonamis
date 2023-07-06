@@ -13,19 +13,34 @@ struct Movie: Identifiable {
     let popularity: CGFloat
     let overview: String
     let backdrop_path: String
-    let first_air_date: String
     let vote_average: CGFloat
     let vote_count: Int
     let genre_ids: [Int]
     let poster_path: String
 }
 
+struct Language: Identifiable {
+    var id: Int
+    let title: String
+    let name: String
+    let flag: String
+}
+
 struct ContentView: View {
     
     @State private var movies: [Movie] = []
     
+    private var languages: [Language] = [
+        Language(id: 1, title: "Most popular movies", name: "en-US", flag: "us"),
+        Language(id: 2, title: "Películas más populares", name: "es-ES", flag: "es"),
+        Language(id: 3, title: "Films les plus populaires", name: "fr-FR", flag:"fr"),
+        Language(id: 4, title: "Die beliebtesten filme", name: "de-DE", flag: "de"),
+        Language(id: 5, title: "Film più popolari", name: "it-IT", flag: "it")
+    ]
+    @State private var language_selected: Language = Language(id: 1, title: "Most popular movies", name: "en-US", flag: "us")
+    
     func handleTVShows() {
-        let request = NSMutableURLRequest(url: NSURL(string: "https://api.themoviedb.org/3/tv/popular?language=en-US&page=1&api_key=c6aeee577586ba38e487b74dfede5deb")! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: "https://api.themoviedb.org/3/tv/popular?language=\(language_selected.name)&page=1&api_key=c6aeee577586ba38e487b74dfede5deb")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
         request.httpMethod = "GET"
@@ -35,8 +50,6 @@ struct ContentView: View {
           if (error != nil) {
             print(error as Any)
           } else {
-            let httpResponse = response as? HTTPURLResponse
-              //print(httpResponse)
               if let data = data {
                   do {
                       if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
@@ -48,7 +61,6 @@ struct ContentView: View {
                                                 let popularity = movieData["popularity"] as? CGFloat,
                                                 let overview = movieData["overview"] as? String,
                                                 let backdrop_path = movieData["backdrop_path"] as? String,
-                                                let first_air_date = movieData["first_air_date"] as? String,
                                                 let vote_average = movieData ["vote_average"] as? CGFloat,
                                                 let vote_count = movieData["vote_count"] as? Int,
                                                 let genre_ids = movieData["genre_ids"] as? [Int],
@@ -56,7 +68,7 @@ struct ContentView: View {
                                           else {
                                               return nil
                                           }
-                                          return Movie(id: id, name: name, popularity: popularity, overview: overview, backdrop_path: backdrop_path, first_air_date: first_air_date, vote_average: vote_average, vote_count: vote_count, genre_ids: genre_ids, poster_path: poster_path)
+                                          return Movie(id: id, name: name, popularity: popularity, overview: overview, backdrop_path: backdrop_path, vote_average: vote_average, vote_count: vote_count, genre_ids: genre_ids, poster_path: poster_path)
                                       }
                                       movies.sort(by: { $0.popularity > $1.popularity })
                                   }
@@ -73,7 +85,7 @@ struct ContentView: View {
     }
     
     var body: some View {
-        NavigationView() {
+        NavigationView {
             List(movies) { movie in
                 HStack {
                     AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w92/" + movie.backdrop_path))
@@ -88,8 +100,30 @@ struct ContentView: View {
                     .padding()
                 }
             }
-            .navigationTitle("Most popular movies")
-            
+            .background(Color("BackgroundColor"))
+            .scrollContentBackground(.hidden)
+            .navigationTitle(language_selected.title)
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Menu {
+                        ForEach(languages) { language in
+                            Button(action: {
+                                language_selected = language
+                                handleTVShows()
+                            }) {
+                                HStack {
+                                    Image(language.flag)
+                                        .resizable()
+                                        .frame(width: 20, height: 20)
+                                    Text(language.name)
+                                }
+                            }
+                        }
+                    } label: {
+                        Image(systemName: "globe")
+                    }
+                }
+            }
         }
         .onAppear {
             handleTVShows()
