@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7234C7772A55BDFB00256E2C /* DetailsMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7234C7762A55BDFB00256E2C /* DetailsMovies.swift */; };
 		72A729B72A557FD300D86EE0 /* prueba_doonamisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A729B62A557FD300D86EE0 /* prueba_doonamisApp.swift */; };
 		72A729B92A557FD300D86EE0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A729B82A557FD300D86EE0 /* ContentView.swift */; };
 		72A729BB2A557FD300D86EE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72A729BA2A557FD300D86EE0 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7234C7762A55BDFB00256E2C /* DetailsMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMovies.swift; sourceTree = "<group>"; };
 		72A729B32A557FD300D86EE0 /* prueba-doonamis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "prueba-doonamis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A729B62A557FD300D86EE0 /* prueba_doonamisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prueba_doonamisApp.swift; sourceTree = "<group>"; };
 		72A729B82A557FD300D86EE0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 				72A729B82A557FD300D86EE0 /* ContentView.swift */,
 				72A729BA2A557FD300D86EE0 /* Assets.xcassets */,
 				72A729BC2A557FD300D86EE0 /* Preview Content */,
+				7234C7762A55BDFB00256E2C /* DetailsMovies.swift */,
 			);
 			path = "prueba-doonamis";
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7234C7772A55BDFB00256E2C /* DetailsMovies.swift in Sources */,
 				72A729B92A557FD300D86EE0 /* ContentView.swift in Sources */,
 				72A729B72A557FD300D86EE0 /* prueba_doonamisApp.swift in Sources */,
 			);
@@ -273,8 +277,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,8 +305,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
